@@ -22,7 +22,6 @@
     </div>
 
   </div>
-  <script src="app.js"></script>
   <script>
     // Your web app's Firebase configuration
     var firebaseConfig = {
@@ -37,8 +36,11 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
+
+    const db = firebase.firestore();
+    db.settings({ timestampsInSnapshots: true });
   </script>
+  <script src="app.js"></script>
 </body>
 
 </html>
