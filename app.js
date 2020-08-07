@@ -49,4 +49,12 @@ db.collection('cafes').where('city', '==', 'Toronto').get().then((snapshot) => {
   });
 });
 
+// using order by on db -> can be used to implement sort feature later on
+db.collection('cafes').orderBy('name').get().then((snapshot) => {
+  console.log('Cafes ordered by name:');
+  snapshot.docs.forEach(doc => {
+    console.log(`Cafe Name: ${doc.data().name}, Cafe City: ${doc.data().city}`);
+  });
+});
+
 form.addEventListener('submit', addCafe);
