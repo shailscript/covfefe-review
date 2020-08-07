@@ -42,4 +42,11 @@ db.collection('cafes').get().then((snapshot) => {
   });
 });
 
+// using where clause on db -> can be used to implement search feature later on
+db.collection('cafes').where('city', '==', 'Toronto').get().then((snapshot) => {
+  snapshot.docs.forEach(doc => {
+    console.log(doc);
+  });
+});
+
 form.addEventListener('submit', addCafe);
